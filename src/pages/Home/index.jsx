@@ -28,22 +28,22 @@ export const Home = () => {
           Hello world!
         </h1>
         <div className="items">
-          <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+          <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
             {itemsData?.map((data) => (
-              <li key={data.id} class="pb-3 sm:pb-4">
-                <div class="flex items-center space-x-4 rtl:space-x-reverse">
-                  <div class="flex-shrink-0">
-                    <img class="w-8 h-8 rounded-full" src={data.img} alt="Neil image" />
+              <li key={data.id} className="pb-3 sm:pb-4">
+                <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                  <div className="flex-shrink-0">
+                    <img className="w-8 h-8 rounded-full" src={data.img} alt="Neil image" />
                   </div>
-                  <div class="flex-1 min-w-0">
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                       {data.name}
                     </p>
-                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                       email@flowbite.com
                     </p>
                   </div>
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                  <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     ${data.price}
                   </div>
                 </div>

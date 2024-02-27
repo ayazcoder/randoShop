@@ -7,9 +7,9 @@ export const Cart = () => {
 
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center px-10">
       <div className='max-w-7xl w-full min-h-screen '>
-        <p className="text-3xl font-semibold text-color-primary text-center">Your Cart (4 items)  </p>
+        <p className="text-3xl font-semibold text-color-primary text-center pt-10">Your Cart (4 items)  </p>
         <table className="table-auto w-full mt-10">
           <thead>
             <tr className='border border-b-2 border-t-0 border-r-0 border-l-0 border-color-gray '>

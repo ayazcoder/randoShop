@@ -33,14 +33,14 @@ export const Card = ({ id, img, name, price, category, toggleHearts, setToggleHe
 
     return (
         <div key={id} className='w-[300px] flex flex-col gap-4 my-4'>
-            <div className='w-full h-[400px] flex flex-col justify-evenly items-center relative' style={backgroundImageStyle} >
-                <div className="flex justify-between items-center text-black w-full px-4 absolute bottom-10">
+            <div data-aos="zoom-in" className='w-full h-[400px] flex flex-col justify-evenly items-center relative' style={backgroundImageStyle} >
+                <div data-aos="fade-up" className="flex justify-between items-center text-black w-full px-4 absolute bottom-10">
                     <button className='w-full h-[50px] bg-white text-color-primary'>Add to cart</button>
                 </div>
             </div>
             <div className="flex justify-between">
                 <p className='text-color-gray'>{category}</p>
-                <span className='cursor-pointer' onClick={toggleFavorite}>
+                <span className='cursor-pointer' onClick={toggleFavorite} data-aos="zoom-in">
                     {isFavorite ? <IoMdHeart className='text-2xl' /> : <IoMdHeartEmpty className='text-2xl' /> }
                 </span>
             </div>
