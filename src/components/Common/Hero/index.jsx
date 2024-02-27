@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import Image from '../../assets/images/slider1.jpg';
+import { useNavigate } from 'react-router-dom';
+import Image from '../../../assets/images/slider1.jpg';
+import Slider2 from '../../../assets/images/slider2.jpg';
 
 export const Hero = () => {
-    const [selectedSpan, setSelectedSpan] = useState(null);
+    const navigate = useNavigate()
     const year = new Date().getFullYear();
-    const backgroundImageStyle = {
-        backgroundImage: `url('${Image}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-    };
-
+    const [selectedSpan, setSelectedSpan] = useState(null);
     const handleSpanClick = (index) => {
         setSelectedSpan(index);
+    };
+    const backgroundImageStyle = {
+        backgroundImage: `url('${selectedSpan === 0 || selectedSpan === 2 ? Slider2 : Image}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
     };
     useEffect(() => {
         const interval = setInterval(() => {
@@ -21,7 +23,7 @@ export const Hero = () => {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className='h-screen w-full flex items-center justify-center' style={backgroundImageStyle}>
+        <div className={`h-screen w-full flex items-center justify-center ${selectedSpan === 0 || selectedSpan === 2 ? 'background-transition' : ''}`} style={backgroundImageStyle}>
             <div className="w-full flex  flex-col gap-4 mx-20" data-aos="fade-up">
                 <div className="flex gap-4 items-center justify-stat">
                     <hr className='h-[4px] w-[70px] bg-color-primary text-color-primary' />
@@ -31,7 +33,7 @@ export const Hero = () => {
                 <p className="text-lg text-color-primary"> Consectetur adipisicing elit. </p>
                 <p className="text-lg text-color-primary"> Lorem ipsum dolor. </p>
                 <div className="">
-                    <button className='uppercase text-color-primary font-semibold border-b-2 border-color-primary'>Buy now </button>
+                    <button className='uppercase text-color-primary font-semibold border-b-2 border-color-primary' onClick={() => navigate('/shop')}>Buy now </button>
                 </div>
             </div>
             <div className="absolute bottom-0 flex gap-4">

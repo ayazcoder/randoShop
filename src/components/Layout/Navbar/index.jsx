@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { RiShoppingBagLine } from "react-icons/ri";
+import { IoMdMenu } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
-
+import { RiShoppingBagLine } from "react-icons/ri";
+import { getCart } from '../../../State/CartContext';
 
 export const Navbar = () => {
   const navigate = useNavigate()
+  const { totalItems } = getCart();
   const [showModal, setShowModal] = useState(false)
 
   const handelClick = () => {
@@ -23,7 +25,7 @@ export const Navbar = () => {
         <div className="text-4xl font-bold cursor-pointer px-6 sm:px-0" onClick={navigateToHome}>
           RandomStore
         </div>
-        <div className="hidden sm:ml-6 sm:block">
+        <div className="hidden sm:ml-6 sm :block">
           <div className="flex space-x-4">
             <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/')} aria-current="page">Home</p>
             <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/shop')}>Shop</p>
@@ -34,18 +36,19 @@ export const Navbar = () => {
         </div>
         <div className="hidden sm:ml-6 sm:flex justify-center items-center gap-4">
           <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/add')}>Add New Item</p>
+          <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/admin')}>Admin</p>
           <div className="flex space-x-4 relative cursor-pointer" onClick={handelClick}>
             <RiShoppingBagLine className='text-4xl' />
-            <div className="absolute flex items-center justify-center -bottom-2 -right-2 rounded-full w-[20px] h-[20px] p-3 text-white bg-color-primary">10</div>
+            <div className="absolute flex items-center justify-center -bottom-2 -right-2 rounded-full w-[20px] h-[20px] p-3 text-white bg-color-primary">{totalItems}</div>
           </div>
         </div>
 
         <div className={`flex  sm:hidden justify-end gap-4 pr-3`}>
           <div className="block relative cursor-pointer" onClick={handelClick}>
             <RiShoppingBagLine className='text-4xl' />
-            <div className="absolute flex items-center justify-center -bottom-2 -right-2 rounded-full w-[20px] h-[20px] p-3 text-white bg-color-primary">10</div>
+            <div className="absolute flex items-center justify-center -bottom-2 -right-2 rounded-full w-[20px] h-[20px] p-3 text-white bg-color-primary">{totalItems}</div>
           </div>
-          <RiShoppingBagLine className='text-4xl ' onClick={() => setShowModal(!showModal)} />
+          <IoMdMenu className='text-4xl ' onClick={() => setShowModal(!showModal)} />
         </div>
       </div>
       {showModal ?
@@ -56,6 +59,7 @@ export const Navbar = () => {
           <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer border-b-2 border-white" onClick={() => handleNavigateMenu('/blog')} >Blog</p>
           <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer border-b-2 border-white" onClick={() => handleNavigateMenu('/about')} >About</p>
           <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer border-b-2 border-white" onClick={() => handleNavigateMenu('/contact')} >Contact</p>
+          <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer border-b-2 border-white" onClick={() => handleNavigateMenu('/admin')} >Admin</p>
         </div>
         : ""}
     </nav>
