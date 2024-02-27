@@ -17,3 +17,5 @@ Additionally, I incorporated some extra features:
 2) Introduced category sections in the item listing to facilitate filtering based on categories.
 3) Implemented a search filter allowing users to search for items by their name, price, or category.
 3) Implemented real-time data updates, so CRUD operations reflect immediately without the need to refresh the site.
+
+Github URL: https://github.com/ayazcoder/randoShop
