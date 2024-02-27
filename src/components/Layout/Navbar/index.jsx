@@ -25,7 +25,7 @@ export const Navbar = () => {
         <div className="text-4xl font-bold cursor-pointer px-6 sm:px-0" onClick={navigateToHome}>
           RandomStore
         </div>
-        <div className="hidden sm:ml-6 sm :block">
+        <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/')} aria-current="page">Home</p>
             <p className=" rounded-md px-3 py-2 text-base font-medium cursor-pointer" onClick={() => navigate('/shop')}>Shop</p>
